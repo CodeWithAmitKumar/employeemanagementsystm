@@ -37,35 +37,31 @@
             <br>
             Welcome to Employee World 🌍</h1>
         <p class="header-subtitle">An employee is a valuable contributor who helps an organization grow and succeed through their skills and dedication.</p>
-
+        
         <button type="button" class="btn btn-primary btn-sm">Log-in</button>
         <button type="button" class="btn btn-secondary btn-sm">Register</button>
     </div>
 </header>
 
 <!-- Footer Section -->
-<footer id="contactus" class="footer-section bg-dark text-white py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Contact Us</h2>
-        <form action="#" method="POST">
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="name" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="email" class="form-label">Your Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Write your message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-</footer>
+<section id="contactus" class="footer-section">
+    <h2>Contact Us</h2>
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
 
 <script src="script.js"></script>
 </body>

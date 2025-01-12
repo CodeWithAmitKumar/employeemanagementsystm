@@ -13,10 +13,10 @@ body {
 
 /* Navbar Styling */
 .custom-navbar {
-    background: linear-gradient(45deg, #0066cc, #004e92); /* Gradient background */
+    background: linear-gradient(45deg, #02376c, #004e92); /* Gradient background */
     padding: 15px 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-    border-radius: 10px; /* Rounded corners */
+   
     position: sticky;
     top: 0;
     z-index: 1000;
