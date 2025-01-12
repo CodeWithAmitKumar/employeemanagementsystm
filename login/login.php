@@ -83,7 +83,8 @@
                         <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary w-100" name="login">Login</button>
+                        <!-- <button type="submit" class="btn btn-primary w-100" name="login">Login</button> -->
+                        <a href="/employeedashboard/dashboard/dashboard.php" type="submit" class="btn btn-primary w-100" name="login">Login</a>
                     </div>
                     <div class="text-center mt-3">
                         <p>Don't have an account? 

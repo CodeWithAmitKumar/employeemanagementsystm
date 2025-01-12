@@ -6,9 +6,8 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <?php
-    include '/db_connection.php';
+   
 
-    ?>
+    <h1>Hey User 🙋‍♂️, This is Your Dashboard</h1>
 </body>
 </html>
