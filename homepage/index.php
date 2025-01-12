@@ -38,8 +38,9 @@
             Welcome to Employee World 🌍</h1>
         <p class="header-subtitle">An employee is a valuable contributor who helps an organization grow and succeed through their skills and dedication.</p>
         
-        <button type="button" class="btn btn-primary btn-sm">Log-in</button>
-        <button type="button" class="btn btn-secondary btn-sm">Register</button>
+<!-- Replace the button with an anchor tag that links to login.php -->
+<a href="/employeedashboard/login/login.php" class="btn btn-primary btn-sm">Log-in</a>
+<a href="/employeedashboard/register/registration.php" class="btn btn-secondary btn-sm">Register</a>
     </div>
 </header>
 
