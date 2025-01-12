@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Navbar Styling */
+.custom-navbar {
+    background: linear-gradient(45deg, #0066cc, #004e92); /* Gradient background */
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Employee Icon Styling (Left side of the navbar) */
+.employee-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Circular icon */
+    border: 3px solid #ffffff; /* White border around the icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Soft shadow around the icon */
+    position: absolute;
+    left: 20px; /* Align to the left side */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center */
+}
+
+/* Centered Navbar Text */
+.navbar-brand {
+    color: #ffffff; /* White text color */
+    font-size: 2.5rem; /* Slightly smaller font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Subtle text shadow */
+    flex-grow: 1;
+    margin-left: 60px; /* Space for the icon */
+}
+
+/* Navbar Items Container (Right side) */
+.navbar-items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Navbar Button Styling */
+.btn-creative {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    background-color: #00bcd4; /* Cyan background */
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 188, 212, 0.4); /* Soft cyan shadow */
+}
+
+/* Button Hover Effect */
+.btn-creative:hover {
+    background-color: #ff9800; /* Orange background on hover */
+    color: #ffffff; /* White text */
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.5); /* Enhanced orange shadow */
+}
+
+/* Scroll Text Section */
+.run-text {
+    background-color: rgba(186, 185, 182, 0.872);
+    color: red;
+}
+
+/* Header Section Styling */
+.creative-header {
+    background: linear-gradient(135deg, #000428, #004e92); /* Gradient background */
+    color: #ffffff;
+    height: calc(100vh - 80px); /* Full screen height minus navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Title and Subtitle Styling */
+.header-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Black shadow for title */
+}
+
+.header-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Black shadow for subtitle */
+}
+
+/* Footer Section Styling */
+.footer-section {
+    background-color: #001d3d; /* Dark blue background */
+    color: #ffffff;
+    padding: 40px 0;
+}
+
+.footer-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer-section .form-label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.footer-section .form-control {
+    background-color: #004e92;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.footer-section .btn {
+    background-color: #00ffcc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section .btn:hover {
+    background-color: #004e92;
+}
+
+.footer-section form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 2rem; /* Smaller font size on smaller screens */
+    }
+
+    .employee-icon {
+        width: 35px; /* Adjust size for smaller screens */
+        height: 35px;
+    }
+
+    .btn-creative {
+        font-size: 1rem;
+        padding: 8px 20px;
+    }
+
+    /* Navbar Items Container */
+    .navbar-items {
+        gap: 15px;
+    }
+
+    .footer-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer-section .form-label {
+        font-size: 0.9rem;
+    }
+
+    .footer-section .form-control {
+        font-size: 0.9rem;
+    }
+
+    .footer-section .btn {
+        font-size: 0.9rem;
+    }
+}
+
+/* Smooth Scroll Animation */
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,46 @@
+/* Center the card container */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Customize the card header */
+.card-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Customize input focus styles */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button styles */
+.btn-primary {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Add spacing around inputs and labels */
+.form-label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.form-control {
+    padding: 0.75rem;
+}
+
+/* Add padding inside the card */
+.card-body {
+    padding: 2rem;
+}
+
+/* Card shadow hover effect */
+.form-container:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
