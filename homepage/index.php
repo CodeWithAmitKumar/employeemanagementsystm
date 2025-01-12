@@ -15,7 +15,8 @@
   <div class="container-fluid d-flex align-items-center justify-content-between">
     <!-- Left side: User Icon -->
     <a href="javascript:void(0);" onclick="window.location.reload();" class="user-icon">
-      <i class="fa-regular fa-user"></i>
+     
+      <i class="fa-regular fa-circle-user"></i>
     </a>
     
     <!-- Centered Navbar Text -->
