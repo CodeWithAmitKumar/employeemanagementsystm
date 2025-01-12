@@ -16,23 +16,26 @@ body {
     background: linear-gradient(45deg, #02376c, #004e92); /* Gradient background */
     padding: 15px 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
-   
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Employee Icon Styling (Left side of the navbar) */
-.employee-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%; /* Circular icon */
-    border: 3px solid #ffffff; /* White border around the icon */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Soft shadow around the icon */
-    position: absolute;
-    left: 20px; /* Align to the left side */
-    top: 50%;
-    transform: translateY(-50%); /* Vertically center */
+/* User Icon Styling (Left side of the navbar) */
+.user-icon {
+    font-size: 1.6rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: none;
+   
+    
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.user-icon i {
+    color: #ffffff;
 }
 
 /* Centered Navbar Text */
@@ -158,9 +161,9 @@ body {
         font-size: 2rem; /* Smaller font size on smaller screens */
     }
 
-    .employee-icon {
-        width: 35px; /* Adjust size for smaller screens */
-        height: 35px;
+    .user-icon {
+        font-size: 1.5rem; /* Adjust size for smaller screens */
+        padding: 8px;
     }
 
     .btn-creative {

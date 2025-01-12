@@ -6,14 +6,17 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3cec989f37.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid d-flex align-items-center justify-content-between">
-    <!-- Left side: Employee Icon -->
-    <img src="/images/iconemployee.png" alt="Employee Icon" class="employee-icon">
+    <!-- Left side: User Icon -->
+    <a href="javascript:void(0);" onclick="window.location.reload();" class="user-icon">
+      <i class="fa-regular fa-user"></i>
+    </a>
     
     <!-- Centered Navbar Text -->
     <a class="navbar-brand" href="#">EMPLOYEE MANAGEMENT SYSTEM</a>
@@ -25,7 +28,7 @@
   </div>
 </nav>
 
-<!-- scroll text section -->
+<!-- Scroll Text Section -->
 <div class="run-text">
     <marquee behavior="scroll" direction="left to right">Building Stronger Teams, Empowering Every Employee to Achieve Excellence and Drive Success Together.😊</marquee>
 </div>
@@ -38,9 +41,9 @@
             Welcome to Employee World 🌍</h1>
         <p class="header-subtitle">An employee is a valuable contributor who helps an organization grow and succeed through their skills and dedication.</p>
         
-<!-- Replace the button with an anchor tag that links to login.php -->
-<a href="/employeedashboard/login/login.php" class="btn btn-primary btn-sm">Log-in</a>
-<a href="/employeedashboard/register/registration.php" class="btn btn-secondary btn-sm">Register</a>
+        <!-- Replace the button with an anchor tag that links to login.php -->
+        <a href="/employeedashboard/login/login.php" class="btn btn-primary btn-sm">Log-in</a>
+        <a href="/employeedashboard/register/registration.php" class="btn btn-secondary btn-sm">Register</a>
     </div>
 </header>
 
@@ -63,7 +66,6 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </section>
-
 
 </body>
 </html>
