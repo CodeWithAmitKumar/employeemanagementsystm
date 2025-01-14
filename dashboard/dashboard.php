@@ -14,7 +14,7 @@
         <aside id="sidebar">
             <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
-                    <a href="#" style="color: white; font-weight: bold;">UserDashboard</a>
+                <a href="javascript:void(0);" onclick="window.location.reload();" style="color: white; font-weight: bold;">UserDashboard</a>
                 </div>
                 <button class="toggle-btn" type="button">
                     <i id="icon" class='bx bxs-chevrons-right'></i>
@@ -24,20 +24,58 @@
             <ul class="sidebar-nav">
 
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"> 
-                    <i class='bx bx-user'></i>
-                    <span>Profile</span>
+                    <a href="#edit" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="edit"> 
+                        <i class='bx bx-user'></i>
+                        <span>Profile</span>
                     </a>
+                    <ul id="edit" class="sidebar-dropdown list-unstyled collapse">
+                        <li class="sidebar-item">
+                            <a href="/employeedashboard/dashboard/updateprofile/update_user.php" class="sidebar-link">
+                                <i class='bx bxs-edit'></i>
+                                <span>Edit Profile</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
+                
+<!-- setting&logout -->
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"> 
-                    <i class='bx bx-cog' ></i>
-                    <span>Setting</span>
+                    <a href="#logout" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="logout"> 
+                        <i class='bx bx-cog'></i>
+                        <span>Setting</span>
                     </a>
+                    <ul id="logout" class="sidebar-dropdown list-unstyled collapse">
+                        <li class="sidebar-item">
+                            <a href="/employeedashboard/homepage/index.php" class="sidebar-link">
+                            <i class='bx bx-log-out' ></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
+
+
+
+
+        <!-- footerpage start -->
             </ul>
+            <div class="sidebar-footer">
+
+            <a href="https://www.linkedin.com/in/amit-web-developer/" class="sidebar-link"><i class='bx bxl-linkedin' ></i>
+        <span>Linkedin</span></a>
+            <a href="https://github.com/CodeWithAmitKumar" class="sidebar-link"><i class='bx bxl-github' ></i>
+        <span>Github</span></a>
+            <a href="https://www.instagram.com/thatodiapila/" class="sidebar-link"><i class='bx bxl-instagram' ></i>
+        <span>Instagram</span></a>
+
+                <div class="sidebar-copyright" >
+                    <p >Copyright 2025. All rights reserved.</p>
+                    </div>
+            </div>
+            <!-- footer end here -->
+
         </aside>
         <div class="main">
             <!-- Main content goes here -->

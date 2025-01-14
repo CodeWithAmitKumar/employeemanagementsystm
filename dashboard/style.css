@@ -45,7 +45,9 @@ body {
     color: white;
 }
 
-#sidebar:not(.expand) .sidebar-logo {
+#sidebar:not(.expand) .sidebar-logo ,
+#sidebar:not(.expand) a.sidebar-link span
+ {
     display: none;
 }
 
@@ -65,7 +67,8 @@ body {
     color: white;
 
 }
-#sidebar.expand .sidebar-logo{
+#sidebar.expand .sidebar-logo ,
+#sidebar.expand a.sidebar-link span{
     animation: fadeln .25s ease;
 
 }
@@ -83,4 +86,29 @@ body {
     font-size: 1.15rem;
     font-weight: 600;
     
+}
+
+.sidebar-nav{
+    padding: 0.7rem;
+    flex: 11 auto;
+    z-index: 10;
+}
+a.sidebar-link{
+    padding: .625rem 1.625rem;
+    color: white;
+    display: block;
+    white-space: nowrap;
+    font-weight: 700;
+    border-left: 3px solid transparent;
+    }
+
+.sidebar-link i,
+.dropdown-item i   {
+   font-size: 1.1rem;
+   margin-right: 0.75rem;
+    
+}
+a.sidebar-link:hover{
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;    
 }
