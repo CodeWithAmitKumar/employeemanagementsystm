@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    animation: glow 1.5s infinite alternate;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card input,
+.card select,
+.card button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.card button {
+    background: #6a11cb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card button:hover {
+    background: #2575fc;
+}
+
+.success-message, .error-message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.success-message {
+    color: green;
+}
+
+.error-message {
+    color: red;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #6a11cb, 0 0 20px #6a11cb, 0 0 30px #6a11cb;
+    }
+    to {
+        box-shadow: 0 0 20px #2575fc, 0 0 30px #2575fc, 0 0 40px #2575fc;
+    }
+}
