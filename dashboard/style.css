@@ -112,3 +112,27 @@ a.sidebar-link:hover{
     background-color: rgba(255, 255, 255, .075);
     border-left: 3px solid #3b7ddd;    
 }
+.sidebar-copyright{
+    color: #f4f1f8;
+}
+
+.sidebar-item{
+    position: relative;
+
+}
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown{
+    position: absolute;
+    top: 0;
+    left: 90px;
+    background-color: #0e2238;
+    padding: 0;
+    
+    min-width: 15rem;
+    display: none;
+}
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown +.sidebar-dropdown{
+    display: block;
+    max-height: 15rem;
+    width: 100%;
+    opacity: 1;
+}
