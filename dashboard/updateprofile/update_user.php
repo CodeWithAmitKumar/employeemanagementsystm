@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php if ($error_message) echo "<div class='error-message'>$error_message</div>"; ?>
         <?php if ($success_message) echo "<div class='success-message'>$success_message</div>"; ?>
 
-        <form method="POST" action="">
+        <form method="POST" action="/employeedashboard/dashboard/updateprofile/update_user.php">
             <input type="hidden" name="id" value="<!-- Pass the user's ID here dynamically -->" />
             <input type="text" name="job_designation" placeholder="Job Designation" required />
             <input type="text" name="highest_qualification" placeholder="Highest Qualification" required />
