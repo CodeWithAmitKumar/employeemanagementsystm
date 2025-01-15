@@ -8,7 +8,7 @@ $success_message = null;
 
 // Handle form submission for updating user details
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name']; // Editable field
+    $id = $_POST['id']; // Unique identifier
     $job_designation = $_POST['job_designation'];
     $highest_qualification = $_POST['highest_qualification'];
     $marital_status = $_POST['marital_status'];
@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 marital_status = ?, 
                 mobile_no = ?, 
                 date_of_birth = ?
-            WHERE name = ?";
+            WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $job_designation, $highest_qualification, $marital_status, $mobile_no, $date_of_birth, $name);
+    $stmt->bind_param("sssssi", $job_designation, $highest_qualification, $marital_status, $mobile_no, $date_of_birth, $id);
 
     if ($stmt->execute()) {
         $success_message = "Details updated successfully!";
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php if ($success_message) echo "<div class='success-message'>$success_message</div>"; ?>
 
         <form method="POST" action="">
-            <input type="text" name="name" placeholder="Name" required />
+            <input type="hidden" name="id" value="<!-- Pass the user's ID here dynamically -->" />
             <input type="text" name="job_designation" placeholder="Job Designation" required />
             <input type="text" name="highest_qualification" placeholder="Highest Qualification" required />
             <select name="marital_status" required>
