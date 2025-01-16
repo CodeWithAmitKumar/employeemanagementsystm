@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="wrapper">
+        <!-- Sidebar Section -->
         <aside id="sidebar">
             <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
@@ -76,41 +77,48 @@
             </div>
         </aside>
 
+        <!-- Main Content Section -->
         <div class="main">
-                    <!-- navbar start -->
-    <nav class="navbar navbar-expand px-4 py-3">
-    <form action="#" class="d-none d-sm-inline-block">
-        <div class="input-group input-group-navbar">
-            <input type="text" class="form-control border-0 rounded-0 pe-0" placeholder="Search..." aria-label="Search">
-            <button class="btn border-0 rounded-0" type="button"><i class='bx bx-search'></i></button>
-        </div>
-    </form>
-    <div class="navbar-collapse collapse">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-
-                <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                <img src="images/av.png" class="avatar img-fluid rounded-circle" alt="User Avatar" style="width: 50px; height: 50px;">
-                </a>
-                
-                <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
-                    <a href="#" class="dropdown-item">
-                        <i class='bx bx-mail-send'></i>
-                        <span>Contact-me</span>
-                    </a>
-                    <a href="/employeedashboard/homepage/index.php" class="dropdown-item">
-                    <i class='bx bx-log-out'></i>
-                    <span>Logout</span>
-                    </a>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand px-4 py-3">
+                <form action="#" class="d-none d-sm-inline-block">
+                    <div class="input-group input-group-navbar">
+                        <input type="text" class="form-control border-0 rounded-0 pe-0" placeholder="Search..." aria-label="Search">
+                        <button class="btn border-0 rounded-0" type="button"><i class='bx bx-search'></i></button>
+                    </div>
+                </form>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                <img src="images/av.png" class="avatar img-fluid rounded-circle" alt="User Avatar" style="width: 50px; height: 50px;">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
+                                <a href="/employeedashboard/dashboard/contact/contact.php" class="dropdown-item">
+                                    <i class='bx bx-mail-send'></i>
+                                    <span>Contact-me</span>
+                                </a>
+                                <a href="/employeedashboard/homepage/index.php" class="dropdown-item">
+                                    <i class='bx bx-log-out'></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </li>
-        </ul>
-    </div>
-</nav>
-      
-        </div>
-    </div>
+            </nav>
 
+            <!-- Welcome Note -->
+            <div class="welcome">
+                <h2 class="text-center"><big>Welcome</big> Back 🎉 Great to see you again !</h2>
+            </div>
+
+
+
+        </div> <!-- Ends the 'main' div -->
+    </div> <!-- Ends the 'wrapper' div -->
+
+    <!-- JavaScript Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
