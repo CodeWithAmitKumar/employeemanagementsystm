@@ -109,19 +109,3 @@ li {
     text-align: center;
 }
 
-.sidebar-dropdown a.sidebar-link::before{
-    content: "";
-    height: 0.125rem;
-    width: 0.325rem;
-    background-color: #ffffff80;
-    position: absolute;
-    left: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);transform: all 0.5s;
-}
-.sidebar-dropdown a.sidebar-link::after{
-    background: transparent ;
-    border-left: 3px solid transparent;
-    padding: 3.5rem;
-    color: #7277f2;
-}
