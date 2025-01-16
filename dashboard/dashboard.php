@@ -78,38 +78,36 @@
 
         <div class="main">
                     <!-- navbar start -->
-                <nav class="navbar navbar-expand px-4 py-3 ">
-                    <form action="#" class="d-none d-sm-inline-block">
-                        <div class="input-group input-group-navbar">
-                            <input type="text" class=" form-control border-0 rounded-0 pe-0" placeeholder="Search..." aria-label="Search"><button class="" btn border-0 rounded-0 type="button"><i class='bx bx-search'></i></button>
+    <nav class="navbar navbar-expand px-4 py-3">
+    <form action="#" class="d-none d-sm-inline-block">
+        <div class="input-group input-group-navbar">
+            <input type="text" class="form-control border-0 rounded-0 pe-0" placeholder="Search..." aria-label="Search">
+            <button class="btn border-0 rounded-0" type="button"><i class='bx bx-search'></i></button>
+        </div>
+    </form>
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
 
-                        </div>
-                    </form>
-                    <div class="navbar-collapse collapse">
-                        <ul class="navbar-nav ms-auto" >
-                            <li class="nav-item" dropdown>
-                                <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-
-                                    <img src="/employeedashboard/dashboard/avatar.png" class="avatar img-fluid" alt="">
-
-                                </a>
-                                        <div class="dropdown-menu" class="dropdown-menu-end rounded-0 border-0 shadow mt-3">
-                                            <a href="#" class="dropdown-item">
-                                            <i class='bx bx-cog' ></i>
-                                            <span>Setting</span>
-
-                                            </a>
-                                            <a href="#" class="dropdown-item">
-                                           <i class='bx bx-mail-send' ></i>
-                                            <span>Contact-me</span>
-                                            </a>
-
-                                        </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </nav>      
+                <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                <img src="images/av.png" class="avatar img-fluid rounded-circle" alt="User Avatar" style="width: 50px; height: 50px;">
+                </a>
+                
+                <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
+                    <a href="#" class="dropdown-item">
+                        <i class='bx bx-mail-send'></i>
+                        <span>Contact-me</span>
+                    </a>
+                    <a href="/employeedashboard/homepage/index.php" class="dropdown-item">
+                    <i class='bx bx-log-out'></i>
+                    <span>Logout</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+      
         </div>
     </div>
 

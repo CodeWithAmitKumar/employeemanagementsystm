@@ -109,3 +109,18 @@ li {
     text-align: center;
 }
 
+/* navbar styling */
+.navbar {
+    background-color: #f2f8fc;
+    box-shadow: 0 0 2rem 0 rgba(33, 37, 41, 0.1);
+}
+
+.navbar .navbar-collapse{
+    min-width: 200px;
+}
+
+.avatar{
+   
+   height: 40px;
+   width: 40px;
+}
