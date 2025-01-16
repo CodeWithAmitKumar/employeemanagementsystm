@@ -115,7 +115,7 @@ li {
     box-shadow: 0 0 2rem 0 rgba(33, 37, 41, 0.1);
 }
 
-.navbar .navbar-collapse{
+.navbar-expand .navbar-collapse{
     min-width: 200px;
 }
 
