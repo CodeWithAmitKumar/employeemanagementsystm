@@ -9,12 +9,13 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="wrapper">
         <!-- Sidebar Section -->
         <aside id="sidebar">
-            <div class="d-flex justify-content-between p-4">
+            <div class="sidebar-header d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
                     <a href="javascript:void(0);" onclick="window.location.reload();" class="text-white fw-bold">UserDashboard</a>
                 </div>
@@ -83,7 +84,7 @@
             <nav class="navbar navbar-expand px-4 py-3">
                 <form action="#" class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounded-0 pe-0" placeholder="Search..." aria-label="Search">
+                        <input type="text" class="form-control border-0 rounded-0 pe-0" placeholder="Search By Employee id..." aria-label="Search">
                         <button class="btn border-0 rounded-0" type="button"><i class='bx bx-search'></i></button>
                     </div>
                 </form>
@@ -109,14 +110,55 @@
             </nav>
 
             <!-- Welcome Note -->
-            <div class="welcome">
-                <h2 class="text-center"><big>Welcome</big> Back 🎉 Great to see you again !</h2>
+            <div class="welcome text-center">
+                <h4><big>Welcome</big> Back 🎉 Great to see you again!</h4>
             </div>
 
+            <!-- Cards Section -->
+            <div class="card-container">
+                <!-- Total Employee Card -->
+                <div class="card1">
+                    <p>Total Employee</p>
+                </div>
+
+                <!-- Department Dropdown -->
+                <div class="dropdown">
+                    <label for="dept-select">Select Department:</label>
+                    <select name="department" id="dept-select" class="form-control">
+                        <option value="">--Please choose an option--</option>
+                        <option value="Software">Software Development</option>
+                        <option value="QA">Quality Assurance (QA) and Testing</option>
+                        <option value="DevOps">DevOps and Infrastructure</option>
+                        <option value="UI/UX">UI/UX Design</option>
+                        <option value="R&D">Research and Development (R&D)</option>
+                        <option value="HR">Human Resources (HR)</option>
+                    </select>
+                </div>
+
+                <!-- Shift Timing Dropdown -->
+                <div class="dropdown1">
+                    <label for="shift-select">Select Shift:</label>
+                    <select name="shift" id="shift-select" class="form-control">
+                        <option value="">--Please choose an option--</option>
+                        <option value="morning">8 am - 2 pm</option>
+                        <option value="evening">2 pm - 8 pm</option>
+                    </select>
+                </div>
+
+                <!-- Get Data Button -->
+                <button class="btn">Get Data</button>
+            </div>
+        
+            
+                <button class="add-btn">Add Employee <i class='bx bxs-file-plus'></i></button>
 
 
-        </div> <!-- Ends the 'main' div -->
-    </div> <!-- Ends the 'wrapper' div -->
+          
+
+
+
+        </div>
+    </div>
 
     <!-- JavaScript Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
