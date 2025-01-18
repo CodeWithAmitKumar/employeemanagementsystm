@@ -44,7 +44,7 @@
         
         <!-- Replace the button with an anchor tag that links to login.php -->
         <a href="/employeedashboard/login/login.php" class="btn btn-primary btn-sm">Log-in</a>
-        <a href="/employeedashboard/register/registration.php" class="btn btn-secondary btn-sm">Register</a>
+        <!-- <a href="/employeedashboard/register/registration.php" class="btn btn-secondary btn-sm">Register</a> -->
     </div>
 </header>
 
