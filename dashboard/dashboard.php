@@ -9,7 +9,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
     <div class="wrapper">
@@ -116,11 +115,6 @@
 
             <!-- Cards Section -->
             <div class="card-container">
-                <!-- Total Employee Card -->
-                <div class="card1">
-                    <p>Total Employee</p>
-                </div>
-
                 <!-- Department Dropdown -->
                 <div class="dropdown">
                     <label for="dept-select">Select Department:</label>
@@ -148,113 +142,93 @@
                 <!-- Get Data Button -->
                 <button class="btn">Get Data</button>
             </div>
-        
-           
 
+            <!-- Updated Add Employee Button -->
+            <div class="text-center my-4">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
+            </div>
 
-
-
-
-
-<!-- Updated Add Employee Button -->
-<div class="text-center my-4">
-  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">Add Employee</button>
-</div>
-
-
-<!-- Manage Employee Table -->
-<!-- Manage Employee Table -->
-<div class="container my-4">
-    <h2 class="text-center">Manage Employees</h2>
-    <table class="table table-bordered table-striped">
-        <thead class="table-dark text-center">
-            <tr>
-                <th>ID</th>
-                <th>Employee Name</th>
-                <th>Employee ID</th>
-                <th>Department</th>
-                <th>Email</th>
-                <th>Phone No</th>
-                <th>Shift Time</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="employee-table-body" class="text-center">
-            <!-- Dynamic rows will be populated here -->
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-
-          
-
-
-
+            <!-- Manage Employee Table -->
+            <div class="container my-4">
+                <h2 class="text-center">Manage Employees</h2>
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>ID</th>
+                            <th>Employee Name</th>
+                            <th>Employee ID</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Phone No</th>
+                            <th>Shift Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-table-body" class="text-center">
+                        <!-- Dynamic rows will be populated here -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-
-<!-- Add Employee Modal -->
-<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="addEmployeeForm">
-          <div class="mb-3">
-            <label for="employeeName" class="form-label">Employee Name</label>
-            <input type="text" class="form-control" id="employeeName" name="employeeName" required>
-          </div>
-          <div class="mb-3">
-            <label for="employeeID" class="form-label">Employee ID</label>
-            <input type="text" class="form-control" id="employeeID" name="employeeID" required>
-          </div>
-          <div class="mb-3">
-            <label for="department" class="form-label">Department</label>
-            <select class="form-select" id="department" name="department" required>
-              <option value="" disabled selected>Select Department</option>
-              <option value="Software">Software Development</option>
-                        <option value="QA">Quality Assurance (QA) and Testing</option>
-                        <option value="DevOps">DevOps and Infrastructure</option>
-                        <option value="UI/UX">UI/UX Design</option>
-                        <option value="R&D">Research and Development (R&D)</option>
-                        <option value="HR">Human Resources (HR)</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label">Phone No</label>
-            <input type="text" class="form-control" id="phone" name="phone" required>
-          </div>
-          <div class="mb-3">
-            <label for="shiftTime" class="form-label">Shift Time</label>
-            <select class="form-select" id="shiftTime" name="shiftTime" required>
-              <option value="" disabled selected>Select Shift Time</option>
-              <option value="9:00 AM - 5:00 PM">8 am - 2 pm</option>
-              <option value="5:00 PM - 1:00 AM">2 pm - 8 am</option>
-            </select>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveEmployeeButton">Save Employee</button>
-      </div>
+    <!-- Add Employee Modal -->
+    <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addEmployeeForm">
+                        <div class="mb-3">
+                            <label for="employeeName" class="form-label">Employee Name</label>
+                            <input type="text" class="form-control" id="employeeName" name="employeeName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeID" class="form-label">Employee ID</label>
+                            <input type="text" class="form-control" id="employeeID" name="employeeID" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">Department</label>
+                            <select class="form-select" id="department" name="department" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="Software">Software Development</option>
+                                <option value="QA">Quality Assurance (QA) and Testing</option>
+                                <option value="DevOps">DevOps and Infrastructure</option>
+                                <option value="UI/UX">UI/UX Design</option>
+                                <option value="R&D">Research and Development (R&D)</option>
+                                <option value="HR">Human Resources (HR)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone No</label>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="shiftTime" class="form-label">Shift Time</label>
+                            <select class="form-select" id="shiftTime" name="shiftTime" required>
+                                <option value="" disabled selected>Select Shift Time</option>
+                                <option value="9:00 AM - 5:00 PM">8 am - 2 pm</option>
+                                <option value="5:00 PM - 1:00 AM">2 pm - 8 am</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="saveEmployeeButton" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>

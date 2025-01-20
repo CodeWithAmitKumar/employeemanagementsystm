@@ -160,14 +160,7 @@ li {
     justify-content: space-evenly;
 }
 
-.card1 {
-    background-color: #f4f1f8;
-    padding: 15px;  /* Reduced padding */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 0.5;  /* Reduced flex to make the card smaller */
-}
+
 
 .dropdown, .dropdown1 {
     margin-top: 10px;
