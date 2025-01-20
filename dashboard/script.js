@@ -15,9 +15,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const employeeTableBody = document.getElementById("employee-table-body");
     let rowBeingEdited = null; // Track row being edited
 
+    // Function to fetch employees from the server and render them
+    const fetchEmployees = () => {
+        fetch("store.php") // Adjust URL if needed
+            .then((response) => response.json())
+            .then((data) => {
+                if (Array.isArray(data)) {
+                    renderEmployeeTable(data);
+                } else {
+                    console.error("Unexpected data format:", data);
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching employees:", error);
+            });
+    };
+
+    // Function to render employees in the table
+    const renderEmployeeTable = (employees) => {
+        employeeTableBody.innerHTML = ""; // Clear table before rendering
+        employees.forEach((employee, index) => {
+            const row = createTableRow({
+                ...employee,
+                id: index + 1, // Reassign IDs based on the current index
+            });
+            employeeTableBody.appendChild(row);
+        });
+    };
+
     // Function to create a table row
     const createTableRow = (employee) => {
         const row = document.createElement("tr");
+        row.dataset.id = employee.id; // Add a data attribute for easier manipulation
         row.innerHTML = `
             <td>${employee.id}</td>
             <td>${employee.name}</td>
@@ -34,66 +63,65 @@ document.addEventListener("DOMContentLoaded", () => {
         return row;
     };
 
-    // Add or update employee to the table and backend
+    // Add or update employee in the table and backend
     saveEmployeeButton.addEventListener("click", function () {
         const form = document.getElementById("addEmployeeForm");
         const formData = new FormData(form);
 
-        // Send form data to the backend using fetch
-        fetch("store.php", {  // Update with the actual PHP script path
+        fetch("store.php", {
             method: "POST",
             body: formData,
         })
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) {
-                    alert("Employee added successfully!");
+                    alert("Employee saved successfully!");
 
-                    // Collect form data after successful response
-                    const name = document.getElementById("employeeName").value;
-                    const employeeID = document.getElementById("employeeID").value;
-                    const department = document.getElementById("department").value;
-                    const email = document.getElementById("email").value;
-                    const phone = document.getElementById("phone").value;
-                    const shiftTime = document.getElementById("shiftTime").value;
-
+                    // Collect form data
                     const employee = {
-                        id: Date.now(), 
-                        name,
-                        employeeID,
-                        department,
-                        email,
-                        phone,
-                        shiftTime,
+                        id: rowBeingEdited
+                            ? rowBeingEdited.dataset.id
+                            : employeeTableBody.children.length + 1,
+                        name: formData.get("name"),
+                        employeeID: formData.get("employeeID"),
+                        department: formData.get("department"),
+                        email: formData.get("email"),
+                        phone: formData.get("phone"),
+                        shiftTime: formData.get("shiftTime"),
                     };
 
                     if (rowBeingEdited) {
-                        // Update the row if editing
-                        rowBeingEdited.innerHTML = createTableRow(employee).innerHTML;
-                        rowBeingEdited = null; // Reset edit tracking
+                        // Update existing row
+                        const cells = rowBeingEdited.children;
+                        cells[1].textContent = employee.name;
+                        cells[2].textContent = employee.employeeID;
+                        cells[3].textContent = employee.department;
+                        cells[4].textContent = employee.email;
+                        cells[5].textContent = employee.phone;
+                        cells[6].textContent = employee.shiftTime;
+                        rowBeingEdited = null;
                     } else {
-                        // Add a new row
+                        // Add new row
                         const row = createTableRow(employee);
                         employeeTableBody.appendChild(row);
                     }
 
-                    // Reset the form and close the modal
                     form.reset();
-                    const modal = new bootstrap.Modal(document.getElementById("addEmployeeModal"));
-                    modal.hide(); // Close the modal after saving
+                    const modal = new bootstrap.Modal(
+                        document.getElementById("addEmployeeModal")
+                    );
+                    modal.hide(); // Close modal
                 } else {
-                    alert("Failed to add employee. Try again.");
+                    alert("Failed to save employee. Try again.");
                 }
             })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+            .catch((error) => console.error("Error:", error));
     });
 
     // Delegate edit and delete actions
     employeeTableBody.addEventListener("click", (e) => {
         if (e.target.classList.contains("edit-btn")) {
-            // Editing an employee
+            // Edit action
             const row = e.target.closest("tr");
             rowBeingEdited = row;
 
@@ -105,33 +133,42 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("phone").value = cells[5].textContent;
             document.getElementById("shiftTime").value = cells[6].textContent;
 
-            // Show the modal for editing
-            const modal = new bootstrap.Modal(document.getElementById("addEmployeeModal"));
+            const modal = new bootstrap.Modal(
+                document.getElementById("addEmployeeModal")
+            );
             modal.show();
         } else if (e.target.classList.contains("delete-btn")) {
-            // Deleting an employee
+            // Delete action
             const row = e.target.closest("tr");
-            const employeeID = row.children[2].textContent; // Use employee ID for deletion
+            const employeeID = row.children[2].textContent;
 
-            // Send delete request to the backend
-            fetch("store.php", {  // Update with the actual PHP script path
+            fetch("store.php", {
                 method: "POST",
-                body: JSON.stringify({ action: "delete", employeeID: employeeID }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                body: JSON.stringify({ action: "delete", employeeID }),
+                headers: { "Content-Type": "application/json" },
             })
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.success) {
-                        row.remove(); // Remove the row from the table
+                        row.remove(); // Remove row
+                        reassignIDs(); // Reassign IDs after deletion
                     } else {
                         alert("Failed to delete employee. Try again.");
                     }
                 })
-                .catch((error) => {
-                    console.error("Error:", error);
-                });
+                .catch((error) => console.error("Error:", error));
         }
     });
+
+    // Reassign IDs to table rows after deletion
+    const reassignIDs = () => {
+        const rows = employeeTableBody.children;
+        Array.from(rows).forEach((row, index) => {
+            row.children[0].textContent = index + 1; // Update ID cell
+            row.dataset.id = index + 1; // Update dataset ID
+        });
+    };
+
+    // Initial fetch of employees
+    fetchEmployees();
 });

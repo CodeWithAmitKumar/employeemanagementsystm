@@ -20,8 +20,8 @@
 
         // Check if the form is submitted
         if (isset($_POST['login'])) {
-            $email = htmlspecialchars($_POST['email']); // Prevent XSS
-            $password = htmlspecialchars($_POST['password']); // Prevent XSS
+            $email = htmlspecialchars($_POST['email']); 
+            $password = htmlspecialchars($_POST['password']); 
 
             $errors = array();
 

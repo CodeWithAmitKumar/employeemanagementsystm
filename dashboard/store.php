@@ -12,9 +12,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Function to send JSON response
+function sendResponse($data) {
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    exit;
+}
+
 // Insert or update employee (POST request)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employeeName'])) {
-    // Get the form data from the POST request
     $name = $_POST['employeeName'];
     $employeeID = $_POST['employeeID'];
     $department = $_POST['department'];
@@ -22,37 +28,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employeeName'])) {
     $phone = $_POST['phone'];
     $shiftTime = $_POST['shiftTime'];
 
-    $stmt = $conn->prepare("INSERT INTO employees (name, employee_id, department, email, phone, shift_time) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $name, $employeeID, $department, $email, $phone, $shiftTime);
+    // Check if the employee already exists
+    $checkStmt = $conn->prepare("SELECT id FROM employees WHERE employee_id = ?");
+    $checkStmt->bind_param("s", $employeeID);
+    $checkStmt->execute();
+    $checkStmt->store_result();
 
-    if ($stmt->execute()) {
-        $response = ['success' => true];
+    if ($checkStmt->num_rows > 0) {
+        // Update existing employee
+        $updateStmt = $conn->prepare("UPDATE employees SET name = ?, department = ?, email = ?, phone = ?, shift_time = ? WHERE employee_id = ?");
+        $updateStmt->bind_param("ssssss", $name, $department, $email, $phone, $shiftTime, $employeeID);
+        $response = $updateStmt->execute() ? ['success' => true, 'message' => 'Employee updated successfully.'] : ['success' => false, 'message' => 'Failed to update employee.'];
+        $updateStmt->close();
     } else {
-        $response = ['success' => false];
+        // Insert new employee
+        $insertStmt = $conn->prepare("INSERT INTO employees (name, employee_id, department, email, phone, shift_time) VALUES (?, ?, ?, ?, ?, ?)");
+        $insertStmt->bind_param("ssssss", $name, $employeeID, $department, $email, $phone, $shiftTime);
+        $response = $insertStmt->execute() ? ['success' => true, 'message' => 'Employee added successfully.'] : ['success' => false, 'message' => 'Failed to add employee.'];
+        $insertStmt->close();
     }
 
-    $stmt->close();
-    echo json_encode($response);
-    exit;
+    $checkStmt->close();
+    sendResponse($response);
 }
 
 // Delete employee (POST request with action)
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_CONTENT_TYPE']) && strpos($_SERVER['HTTP_CONTENT_TYPE'], 'application/json') !== false) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && strpos($_SERVER['CONTENT_TYPE'], 'application/json') !== false) {
     $data = json_decode(file_get_contents("php://input"), true);
-    
-    if ($data['action'] == 'delete' && isset($data['employeeID'])) {
+
+    if (isset($data['action']) && $data['action'] === 'delete' && isset($data['employeeID'])) {
         $employeeID = $data['employeeID'];
-        $stmt = $conn->prepare("DELETE FROM employees WHERE employee_id = ?");
-        $stmt->bind_param("s", $employeeID);
+        
+        // Step 1: Delete the employee
+        $deleteStmt = $conn->prepare("DELETE FROM employees WHERE employee_id = ?");
+        $deleteStmt->bind_param("s", $employeeID);
 
-        if ($stmt->execute()) {
-            echo json_encode(['success' => true]);
+        $deleteSuccess = $deleteStmt->execute();
+        $deleteStmt->close();
+
+        // Step 2: Reindex the employee IDs of remaining employees
+        if ($deleteSuccess) {
+            $reindexStmt = $conn->prepare("UPDATE employees SET employee_id = employee_id - 1 WHERE employee_id > ?");
+            $reindexStmt->bind_param("s", $employeeID);
+            $reindexStmt->execute();
+            $reindexStmt->close();
+
+            sendResponse(['success' => true, 'message' => 'Employee deleted and reindexed successfully.']);
         } else {
-            echo json_encode(['success' => false]);
+            sendResponse(['success' => false, 'message' => 'Failed to delete employee.']);
         }
-
-        $stmt->close();
-        exit;
+    } else {
+        sendResponse(['success' => false, 'message' => 'Invalid request for deletion.']);
     }
 }
 
@@ -68,8 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         }
     }
 
-    header('Content-Type: application/json');
-    echo json_encode($employees);
+    sendResponse($employees);
 }
 
 $conn->close();
