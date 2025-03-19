@@ -45,8 +45,11 @@
             }
 
             // Check for duplicate email
-            $checkEmailQuery = "SELECT * FROM users WHERE email = '$email'";
-            $result = $conn->query($checkEmailQuery);
+            $checkEmailQuery = "SELECT * FROM users WHERE email = ?";
+            $stmt = $conn->prepare($checkEmailQuery);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
             if ($result->num_rows > 0) {
                 array_push($errors, "This email is already registered.");
@@ -63,9 +66,12 @@
             } else {
                 // Insert data into the database
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hash the password
-                $sql = "INSERT INTO users (fullname, email, password) VALUES ('$fullname', '$email', '$hashedPassword')";
-
-                if ($conn->query($sql) === TRUE) {
+                
+                $sql = "INSERT INTO users (fullname, email, password) VALUES (?, ?, ?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sss", $fullname, $email, $hashedPassword);
+                
+                if ($stmt->execute()) {
                     echo '<div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
                             Registration successful! Redirecting to login page...
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

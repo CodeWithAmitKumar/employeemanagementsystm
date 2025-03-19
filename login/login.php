@@ -36,20 +36,26 @@
 
             // If no errors, proceed to authenticate user
             if (count($errors) === 0) {
-                $checkUserQuery = "SELECT * FROM users WHERE email = '$email'";
-                $result = $conn->query($checkUserQuery);
+                // Use prepared statement to prevent SQL injection
+                $checkUserQuery = "SELECT * FROM users WHERE email = ?";
+                $stmt = $conn->prepare($checkUserQuery);
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
                 if ($result->num_rows > 0) {
                     $user = $result->fetch_assoc();
                     if (password_verify($password, $user['password'])) {
                         // Successful login, redirect to dashboard
-                        header("Location: /employeedashboard/dashboard.php");
+                        header("Location: /employeedashboard/dashboard/dashboard.php");
                         exit;
                     } else {
                         array_push($errors, "Invalid password. Please try again.");
                     }
                 } else {
                     array_push($errors, "No account found with this email.");
+                    // Add debugging information
+                    error_log("Login attempt failed for email: " . $email);
                 }
             }
 
@@ -73,7 +79,7 @@
                 <h3>Login</h3>
             </div>
             <div class="card-body">
-                <form action="/employeedashboard/login/login.php" method="post">
+                <form action="login.php" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
@@ -83,8 +89,7 @@
                         <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
                     </div>
                     <div class="text-center">
-                        <!-- <button type="submit" class="btn btn-primary w-100" name="login">Login</button> -->
-                        <a href="/employeedashboard/dashboard/dashboard.php" type="submit" class="btn btn-primary w-100" name="login">Login</a>
+                        <button type="submit" class="btn btn-primary w-100" name="login">Login</button>
                     </div>
                     <div class="text-center mt-3">
                         <p>Don't have an account? 

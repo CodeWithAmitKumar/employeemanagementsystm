@@ -160,13 +160,24 @@
                             <th>Department</th>
                             <th>Email</th>
                             <th>Phone No</th>
+                           
                             <th>Shift Time</th>
+                            <th>Document</th> 
                             <th>Action</th>
+                           
+
+                              
+                            
+                        
                         </tr>
+                    
                     </thead>
                     <tbody id="employee-table-body" class="text-center">
                         <!-- Dynamic rows will be populated here -->
+
+                       
                     </tbody>
+                    
                 </table>
             </div>
         </div>
@@ -181,7 +192,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="addEmployeeForm">
+                    <form id="addEmployeeForm" enctype="multipart/form-data" method="post">
                         <div class="mb-3">
                             <label for="employeeName" class="form-label">Employee Name</label>
                             <input type="text" class="form-control" id="employeeName" name="employeeName" required>
@@ -211,23 +222,29 @@
                             <input type="text" class="form-control" id="phone" name="phone" required>
                         </div>
                         <div class="mb-3">
+                            <label for="document" class="form-label">Upload Document</label>
+                            <input type="file" class="form-control" id="document" name="document">
+                        </div>
+                        <div class="mb-3">
                             <label for="shiftTime" class="form-label">Shift Time</label>
                             <select class="form-select" id="shiftTime" name="shiftTime" required>
                                 <option value="" disabled selected>Select Shift Time</option>
-                                <option value="9:00 AM - 5:00 PM">8 am - 2 pm</option>
-                                <option value="5:00 PM - 1:00 AM">2 pm - 8 am</option>
+                                <option value="8 am - 2 pm">8 am - 2 pm</option>
+                                <option value="2 pm - 8 pm">2 pm - 8 pm</option>
                             </select>
                         </div>
+                        <div class="modal-footer border-0 px-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" id="saveEmployeeButton" class="btn btn-primary">Save Changes</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="saveEmployeeButton" class="btn btn-primary">Save Changes</button>
                 </div>
             </div>
         </div>
     </div>
 
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
